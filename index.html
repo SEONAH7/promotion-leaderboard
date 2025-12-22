@@ -1552,13 +1552,35 @@
       });
     }
 
-    // ===== Form Submission =====
+    // ===== Form Submission with Enhanced Security =====
     const form = document.getElementById('submissionForm');
     const message = document.getElementById('message');
     const submitBtn = document.getElementById('submitBtn');
+    let isSubmitting = false; // 중복 제출 방지
+
+    // 제출 상태 관리
+    const submissionState = {
+      lastSubmitTime: 0,
+      minIntervalMs: 60000, // 최소 60초 간격
+      successCount: 0
+    };
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      // 중복 제출 방지 (버튼 중복 클릭)
+      if (isSubmitting) {
+        console.warn('⚠️ 제출이 진행 중입니다. 잠시만 기다려주세요.');
+        return;
+      }
+
+      // Rate limiting 클라이언트 검사
+      const now = Date.now();
+      if (now - submissionState.lastSubmitTime < submissionState.minIntervalMs) {
+        const remainingSeconds = Math.ceil((submissionState.minIntervalMs - (now - submissionState.lastSubmitTime)) / 1000);
+        showMessage(`너무 빠르게 제출했습니다. ${remainingSeconds}초 후 다시 시도해주세요.`, 'error');
+        return;
+      }
 
       // Validate all fields
       const isEmailValid = window.validateEmailField();
@@ -1568,18 +1590,38 @@
         return; // Stop submission if validation fails
       }
 
-      const email = document.getElementById('email').value;
-      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value.trim();
+      const name = document.getElementById('name').value.trim();
 
-      // 제출 중 상태
+      // 입력값 길이 검증 (프론트엔드)
+      if (email.length > 100) {
+        showMessage('이메일이 너무 깁니다.', 'error');
+        return;
+      }
+      if (name.length > 50) {
+        showMessage('이름이 너무 깁니다.', 'error');
+        return;
+      }
+
+      // XSS 방지: 위험한 문자 검사
+      const dangerousChars = ['<', '>', '"', "'", '{', '}', '`', 'javascript:'];
+      if (dangerousChars.some(char => name.toLowerCase().includes(char))) {
+        showMessage('입력에 허용되지 않는 문자가 포함되어 있습니다.', 'error');
+        return;
+      }
+
+      isSubmitting = true;
       submitBtn.disabled = true;
       submitBtn.textContent = '제출 중...';
 
       try {
-        // Google Apps Script로 전송
+        // Google Apps Script로 전송 (향상된 방식)
         const googleAppsScriptUrl = 'https://script.google.com/macros/s/AKfycbw4LI_A9uH7aA-oGxb8SQUjF3XX31E8Ihw8OXDA_781D7-W-I8b9M9iopClherfBsELPA/exec';
 
-        console.log('📤 전송:', { email, name });
+        console.log('📤 전송 시도:', { email, name });
+
+        // Origin 정보 전송 (CORS 검증용)
+        const currentOrigin = window.location.origin;
 
         // 숨겨진 form으로 제출 (CORS 문제 없음)
         const hiddenForm = document.createElement('form');
@@ -1587,6 +1629,13 @@
         hiddenForm.action = googleAppsScriptUrl;
         hiddenForm.target = 'gas-response';
         hiddenForm.style.display = 'none';
+
+        // Origin 정보 추가
+        const originInput = document.createElement('input');
+        originInput.type = 'hidden';
+        originInput.name = 'origin';
+        originInput.value = currentOrigin;
+        hiddenForm.appendChild(originInput);
 
         const emailInput = document.createElement('input');
         emailInput.type = 'hidden';
@@ -1608,6 +1657,13 @@
         iframe.style.display = 'none';
         document.body.appendChild(iframe);
 
+        // 타임아웃 설정 (20초)
+        const submissionTimeout = setTimeout(() => {
+          console.warn('⚠️ 제출 타임아웃: 응답이 없습니다.');
+          showMessage('요청 시간이 초과했습니다. 잠시 후 다시 시도해주세요.', 'error');
+          cleanupSubmission();
+        }, 20000);
+
         // 제출
         console.log('📤 Form 제출 중...');
         hiddenForm.submit();
@@ -1615,10 +1671,13 @@
         // 작은 지연 후 완료 메시지 표시 (서버 처리 대기)
         setTimeout(function() {
           try {
+            clearTimeout(submissionTimeout);
             console.log('✅ 제출 완료!');
             showMessage('✅ 제출이 완료되었습니다!', 'success');
             FlutterBridge.postMessage('submission_success', { email, name });
             form.reset();
+            submissionState.successCount++;
+            submissionState.lastSubmitTime = Date.now();
 
             // Google Sheet 확인 링크 제시
             console.log('📊 Google Sheet에서 확인하세요: https://docs.google.com/spreadsheets/d/1c7pjecgIel9MAv2mf3hbyEJqzLwX_2nm3ZuHQ-P6XjQ/');
@@ -1626,17 +1685,29 @@
             console.error('❌ 완료 처리 에러:', err);
             showMessage('완료 처리 중 오류: ' + err.message, 'error');
           }
-          submitBtn.disabled = false;
-          submitBtn.textContent = '제출하기';
-          document.body.removeChild(hiddenForm);
-          document.body.removeChild(iframe);
+          cleanupSubmission();
         }, 2000);
 
       } catch (error) {
         console.error('❌ 제출 처리 중 에러:', error);
         showMessage('오류가 발생했습니다: ' + error.message, 'error');
+        cleanupSubmission();
+      }
+
+      function cleanupSubmission() {
+        isSubmitting = false;
         submitBtn.disabled = false;
         submitBtn.textContent = '제출하기';
+
+        const hiddenForm = document.querySelector('form[target="gas-response"]');
+        const iframe = document.querySelector('iframe[name="gas-response"]');
+
+        if (hiddenForm && hiddenForm.parentNode) {
+          document.body.removeChild(hiddenForm);
+        }
+        if (iframe && iframe.parentNode) {
+          document.body.removeChild(iframe);
+        }
       }
     });
 
