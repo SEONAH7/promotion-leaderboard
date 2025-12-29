@@ -202,6 +202,11 @@
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       position: relative;
+      background-image: url('images/coins-bg.png');
+      background-repeat: repeat;
+      background-size: auto;
+      background-position: center;
+      background-attachment: fixed;
     }
 
     body::before,
@@ -214,10 +219,11 @@
       height: 100%;
       pointer-events: none;
       z-index: -1;
+      background: rgba(255, 255, 255, 0.85);
     }
 
     body::before {
-      display: none;
+      display: block;
     }
 
     body::after {
@@ -240,6 +246,13 @@
       text-align: center;
       margin-bottom: 40px;
       padding-top: 20px;
+    }
+
+    .header img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
     }
 
     .header h1 {
@@ -1398,7 +1411,7 @@
   <div class="container">
     <!-- Header -->
     <div class="header">
-      <h1>2026 모인 송금 한도 상향 EVENT</h1>
+      <img src="images/title.png" alt="2026 모인 통합한도 상향 EVENT" style="max-width: 100%; height: auto; display: block;">
     </div>
 
     <!-- Leaderboard Description -->
