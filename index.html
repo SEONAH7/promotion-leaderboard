@@ -563,6 +563,8 @@
       background: linear-gradient(135deg, var(--primary-60), var(--primary-hover));
       border-radius: 12px 12px 0 0;
       margin-bottom: 0;
+      border: 1px solid #E6E9EB;
+      border-bottom: none;
     }
 
     .header-tier,
@@ -593,6 +595,11 @@
       border-radius: 12px;
       margin-bottom: 0;
       transition: all 0.2s ease;
+    }
+
+    .leaderboard-row:first-child {
+      border-radius: 0;
+      border-top: none;
     }
 
     .leaderboard-row:hover {
