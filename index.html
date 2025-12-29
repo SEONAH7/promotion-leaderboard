@@ -929,6 +929,75 @@
       gap: var(--spacing-xxs-0);
     }
 
+    /* ===== Select Dropdown ===== */
+    .mbp-select {
+      display: inline-block;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .mbp-select__wrapper {
+      width: 100%;
+      color: var(--text-title);
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xxs-0);
+      box-sizing: border-box;
+      border-radius: var(--border-radius-small);
+      border: 1px solid transparent;
+      padding: var(--spacing-xs);
+      background: var(--bg-input);
+      border-color: var(--bg-input);
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .mbp-select--focus .mbp-select__wrapper {
+      background: var(--bg-white);
+      border-color: var(--border-interactive-black);
+    }
+
+    .mbp-select--error .mbp-select__wrapper {
+      background: var(--red-10);
+      border-color: var(--red-10);
+    }
+
+    .mbp-select__input {
+      background: transparent;
+      border: none;
+      padding: 0;
+      outline: none;
+      width: 100%;
+      color: var(--text-title);
+      font-family: SpoqaSans, Arial, Helvetica, sans-serif;
+      height: 24px;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1;
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .mbp-select__input option {
+      background: white;
+      color: #1A1B22;
+      padding: 8px;
+    }
+
+    .mbp-select__input:disabled {
+      cursor: not-allowed;
+      color: var(--text-disabled);
+    }
+
+    .mbp-select__error-message {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1;
+      color: var(--text-error);
+      margin-top: var(--spacing-xxs-0);
+    }
+
     .form-label {
       font-size: 14px;
       font-weight: 600;
@@ -1348,6 +1417,31 @@
         <div class="form-grid">
           <div class="form-group">
             <label class="form-label">
+              신청할 보상
+              <span class="required">*</span>
+            </label>
+            <div class="mbp-select mbp-select--medium mbp-select--solid mbp-select--width-filled" id="rewardField">
+              <div class="mbp-select__wrapper">
+                <select
+                  class="mbp-select__input"
+                  id="reward"
+                  name="reward"
+                  required
+                >
+                  <option value="">보상을 선택하세요</option>
+                  <option value="20000">$ 2만 달성 - 5,000원 쿠폰</option>
+                  <option value="40000">$ 4만 달성 - 3만원 현금</option>
+                  <option value="60000">$ 6만 달성 - 5만원 현금</option>
+                  <option value="80000">$ 8만 달성 - 10만원 현금</option>
+                  <option value="100000">$ 10만 달성 - 아이패드 A16 실버</option>
+                </select>
+              </div>
+              <div class="mbp-select__error-message" id="rewardError" style="display: none;"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
               모인에 가입한 이메일
               <span class="required">*</span>
             </label>
@@ -1429,6 +1523,9 @@
 
     // ===== MBP TextField Focus State Management & Validation =====
     function initializeTextfields() {
+      const rewardInput = document.getElementById('reward');
+      const rewardField = document.getElementById('rewardField');
+      const rewardError = document.getElementById('rewardError');
       const emailInput = document.getElementById('email');
       const nameInput = document.getElementById('name');
       const emailField = document.getElementById('emailField');
@@ -1520,7 +1617,52 @@
         }
       });
 
+      // Show error for reward
+      function showRewardError(message) {
+        rewardField.classList.add('mbp-select--error');
+        rewardError.textContent = message;
+        rewardError.style.display = 'block';
+      }
+
+      // Hide error for reward
+      function hideRewardError() {
+        rewardField.classList.remove('mbp-select--error');
+        rewardError.style.display = 'none';
+      }
+
+      // Reward field events
+      rewardInput.addEventListener('focus', () => {
+        rewardField.classList.add('mbp-select--focus');
+      });
+
+      rewardInput.addEventListener('blur', () => {
+        rewardField.classList.remove('mbp-select--focus');
+
+        // Validate on blur
+        const value = rewardInput.value.trim();
+        if (value === '') {
+          showRewardError('보상을 선택해주세요');
+        }
+      });
+
+      rewardInput.addEventListener('change', () => {
+        // Clear error when user selects
+        if (rewardInput.value.trim() !== '') {
+          hideRewardError();
+        }
+      });
+
       // Expose validation functions for form submission
+      window.validateRewardField = function() {
+        const value = rewardInput.value.trim();
+        if (value === '') {
+          showRewardError('보상을 선택해주세요');
+          return false;
+        }
+        hideRewardError();
+        return true;
+      };
+
       window.validateEmailField = function() {
         const value = emailInput.value.trim();
         if (value === '') {
@@ -1603,13 +1745,15 @@
       }
 
       // Validate all fields
+      const isRewardValid = window.validateRewardField();
       const isEmailValid = window.validateEmailField();
       const isNameValid = window.validateNameField();
 
-      if (!isEmailValid || !isNameValid) {
+      if (!isRewardValid || !isEmailValid || !isNameValid) {
         return; // Stop submission if validation fails
       }
 
+      const reward = document.getElementById('reward').value.trim();
       const email = document.getElementById('email').value.trim();
       const name = document.getElementById('name').value.trim();
 
@@ -1656,6 +1800,13 @@
         originInput.name = 'origin';
         originInput.value = currentOrigin;
         hiddenForm.appendChild(originInput);
+
+        // Reward 추가
+        const rewardInput = document.createElement('input');
+        rewardInput.type = 'hidden';
+        rewardInput.name = 'reward';
+        rewardInput.value = reward;
+        hiddenForm.appendChild(rewardInput);
 
         const emailInput = document.createElement('input');
         emailInput.type = 'hidden';
