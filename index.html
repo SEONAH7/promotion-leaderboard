@@ -945,11 +945,12 @@
       box-sizing: border-box;
       border-radius: var(--border-radius-small);
       border: 1px solid transparent;
-      padding: var(--spacing-xs);
+      padding: 0 var(--spacing-xs);
       background: var(--bg-input);
       border-color: var(--bg-input);
       transition: all 0.2s ease;
       position: relative;
+      height: 56px;
     }
 
     .mbp-select--focus .mbp-select__wrapper {
@@ -970,24 +971,32 @@
       width: 100%;
       color: var(--text-title);
       font-family: SpoqaSans, Arial, Helvetica, sans-serif;
-      height: 24px;
+      height: 100%;
       font-size: 18px;
       font-weight: 400;
-      line-height: 1;
+      line-height: 1.5;
       -webkit-appearance: none;
       appearance: none;
       cursor: pointer;
+      padding-right: 24px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%231A1B22' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
     }
 
     .mbp-select__input option {
       background: white;
       color: #1A1B22;
       padding: 8px;
+      font-size: 16px;
+      line-height: 1.5;
     }
 
     .mbp-select__input:disabled {
       cursor: not-allowed;
       color: var(--text-disabled);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23A9ABB4' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
     }
 
     .mbp-select__error-message {
