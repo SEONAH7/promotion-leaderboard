@@ -2049,6 +2049,15 @@
 
     // ===== Counter Animation Logic =====
     function initializeCounters() {
+      // 초기값 복구 - data-current 값으로 설정
+      const counterElements = document.querySelectorAll('[data-target][data-current]');
+      counterElements.forEach(counter => {
+        const initialValue = parseInt(counter.dataset.current);
+        if (!isNaN(initialValue)) {
+          counter.textContent = initialValue;
+        }
+      });
+
       // 1/25부터 차감을 위한 스케줄러 호출
       scheduleCounterDecrements();
     }
