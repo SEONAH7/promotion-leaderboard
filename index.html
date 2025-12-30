@@ -1400,6 +1400,74 @@
       border: 1px solid #FFD5DD;
     }
 
+    /* ===== Privacy Consent Section ===== */
+    .privacy-consent-section {
+      background: #F5F7FA;
+      border: 1px solid #E6E9EB;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
+
+    .privacy-consent-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .privacy-consent-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .privacy-consent-checkbox {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      cursor: pointer;
+      accent-color: #0082FF;
+    }
+
+    .privacy-consent-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .privacy-consent-text label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1A1B22;
+      cursor: pointer;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .privacy-consent-text .description {
+      font-size: 12px;
+      font-weight: 400;
+      color: #6B6C74;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .privacy-consent-error {
+      color: #EE2139;
+      font-size: 12px;
+      font-weight: 400;
+      margin-top: 8px;
+      display: none;
+    }
+
+    .privacy-consent-error.show {
+      display: block;
+    }
+
     /* ===== Notice Section ===== */
     .notice-section {
       background: white;
@@ -1726,6 +1794,24 @@
             </div>
           </div>
 
+          <!-- Privacy Consent Section -->
+          <div class="privacy-consent-section">
+            <div class="privacy-consent-item">
+              <input
+                type="checkbox"
+                id="privacyConsent"
+                class="privacy-consent-checkbox"
+                name="privacyConsent"
+                required
+              >
+              <div class="privacy-consent-text">
+                <label for="privacyConsent">[개인정보 수집 및 이용 동의]</label>
+                <div class="description">본 설문을 통해 수집한 모인 계정과 이름, 인증한 국내 개인 계좌는 리워드 제공을 위해서만 사용됩니다. 개인정보 수집 및 이용에 동의하시나요?</div>
+              </div>
+            </div>
+            <div class="privacy-consent-error" id="privacyError">동의가 필요합니다</div>
+          </div>
+
         </div>
 
         <div class="button-wrapper">
@@ -1940,6 +2026,25 @@
         hideNameError();
         return true;
       };
+
+      // Privacy consent validation
+      const privacyCheckbox = document.getElementById('privacyConsent');
+      const privacyError = document.getElementById('privacyError');
+
+      privacyCheckbox.addEventListener('change', () => {
+        if (privacyCheckbox.checked) {
+          privacyError.classList.remove('show');
+        }
+      });
+
+      window.validatePrivacyConsent = function() {
+        if (!privacyCheckbox.checked) {
+          privacyError.classList.add('show');
+          return false;
+        }
+        privacyError.classList.remove('show');
+        return true;
+      };
     }
 
     // ===== Counter Animation Logic =====
@@ -2047,8 +2152,9 @@
       const isRewardValid = window.validateRewardField();
       const isEmailValid = window.validateEmailField();
       const isNameValid = window.validateNameField();
+      const isPrivacyValid = window.validatePrivacyConsent();
 
-      if (!isRewardValid || !isEmailValid || !isNameValid) {
+      if (!isRewardValid || !isEmailValid || !isNameValid || !isPrivacyValid) {
         return; // Stop submission if validation fails
       }
 
