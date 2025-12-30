@@ -2058,33 +2058,43 @@
 
         // 각 등급별 차감 전략
         let totalDecrements;
+        let decrementStartDate;
 
         if (target === 4) {
-          // 4만달성: 100명 완전 소진
+          // 4만달성: 100명 - 1월 25일부터 12월 31일까지 차감
           totalDecrements = 100;
+          decrementStartDate = new Date('2026-01-25');
         } else if (target === 6) {
-          // 6만달성: 10명 완전 소진
+          // 6만달성: 10명 - 1월 25일부터 12월 31일까지 차감
           totalDecrements = 10;
+          decrementStartDate = new Date('2026-01-25');
         } else if (target === 8) {
-          // 8만달성: 5명 소진 (5명 유지)
+          // 8만달성: 5명 - 1월 25일부터 12월 31일까지 차감
           totalDecrements = 5;
+          decrementStartDate = new Date('2026-01-25');
         } else if (target === 10) {
-          // 10만달성: 1명 완전 소진
+          // 10만달성: 1명 - 12월 31일에 소진
           totalDecrements = 1;
+          decrementStartDate = new Date('2026-12-31');
         }
 
         if (totalDecrements && totalDecrements > 0) {
-          // 랜덤한 기간으로 나눈 차감 일정 생성
-          // 총 366일을 totalDecrements개로 나누되, 각각 랜덤하게 배분
-          const totalMs = 366 * 24 * 60 * 60 * 1000; // 366일을 밀리초로
-          const intervals = generateRandomIntervals(totalDecrements, totalMs);
+          // 지금부터 차감 시작일까지의 시간
+          const now = new Date();
+          const delayUntilStart = Math.max(0, decrementStartDate.getTime() - now.getTime());
 
-          let decrementCount = 0;
+          // 차감 시작일부터 연말(12월 31일 23:59)까지의 시간
+          const yearEndDate = new Date('2026-12-31T23:59:59');
+          const totalDecrementMs = yearEndDate.getTime() - decrementStartDate.getTime();
+
+          const intervals = generateRandomIntervals(totalDecrements, totalDecrementMs);
+
           let cumulativeTime = 0;
 
           intervals.forEach((interval, index) => {
             cumulativeTime += interval;
 
+            // delayUntilStart + cumulativeTime만큼 지난 후에 차감 시작
             setTimeout(() => {
               let currentCount = parseInt(counter.textContent);
               let newCount = Math.max(0, currentCount - 1);
@@ -2095,7 +2105,7 @@
                 counter.textContent = newCount;
                 counter.classList.remove('updating');
               }, 250);
-            }, cumulativeTime);
+            }, delayUntilStart + cumulativeTime);
           });
         }
       });
