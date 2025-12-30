@@ -23,18 +23,20 @@ if target_width > 1100:
 
 title_img_resized = title_img.resize((target_width, target_height), Image.Resampling.LANCZOS)
 
-# Create a new image with standard social media dimensions (1200x630)
-og_image = Image.new('RGB', (1200, 630), color=(240, 247, 255))  # #F0F7FF light blue
+# Create a new image with wider dimensions (1600x900)
+og_width = 1600
+og_height = 900
+og_image = Image.new('RGB', (og_width, og_height), color=(240, 247, 255))  # #F0F7FF light blue
 
 # Calculate position to center title image both horizontally and vertically
-title_x = (1200 - target_width) // 2
-title_y = (630 - target_height) // 2
+title_x = (og_width - target_width) // 2
+title_y = (og_height - target_height) // 2
 
 # Paste the title image with alpha blending
 # Convert RGBA to RGB for pasting
 if title_img_resized.mode == 'RGBA':
     # Create a white background for the title image area
-    title_bg = Image.new('RGB', (1200, 630), color=(240, 247, 255))
+    title_bg = Image.new('RGB', (og_width, og_height), color=(240, 247, 255))
     title_bg.paste(title_img_resized, (title_x, title_y), title_img_resized)
     og_image = title_bg
 else:
@@ -47,4 +49,4 @@ print(f'✓ Title image: {title_image_path}')
 print(f'✓ Title resized from {title_img.size} to {title_img_resized.size}')
 print(f'✓ Title centered at position: ({title_x}, {title_y})')
 print(f'✓ Saved to: {output_path}')
-print(f'✓ Dimensions: 1200x630')
+print(f'✓ Dimensions: {og_width}x{og_height}')
