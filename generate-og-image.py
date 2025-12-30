@@ -4,7 +4,7 @@ import os
 
 # Define paths
 script_dir = os.path.dirname(os.path.abspath(__file__))
-title_image_path = os.path.join(script_dir, 'images', 'correct_title.png')
+title_image_path = os.path.join(script_dir, 'images', 'correct_title_cropped.png')
 output_path = os.path.join(script_dir, 'og-image-new.png')
 
 # Open the title image
