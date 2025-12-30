@@ -2109,6 +2109,10 @@
               setTimeout(() => {
                 counter.textContent = newCount;
                 counter.classList.remove('updating');
+
+                // Google Sheet에 차감 내역 기록
+                const targetTier = parseInt(counter.dataset.target);
+                logDecrementToSheet(targetTier, currentCount, newCount);
               }, 250);
             }, cumulativeTime);
           });
@@ -2137,6 +2141,55 @@
       intervals.push(Math.max(1 * 24 * 60 * 60 * 1000, remainingMs));
 
       return intervals;
+    }
+
+    // Google Apps Script 배포 URL
+    const GAS_DEPLOYMENT_URL = 'https://script.google.com/macros/s/AKfycbyvvB4JSyIOsHoS-5Hj30JRY0WfvRStXamKSuHBT5TrwFfCTq6_wgA9gAr5bWfz5tYTuA/exec';
+
+    /**
+     * 카운터 차감을 Google Sheet에 기록
+     */
+    async function logDecrementToSheet(targetTier, previousCount, newCount) {
+      try {
+        // 목표 금액 매핑
+        const tierAmountMap = {
+          4: '$40,000',
+          6: '$60,000',
+          8: '$80,000',
+          10: '$100,000'
+        };
+
+        const tierAmount = tierAmountMap[targetTier];
+        if (!tierAmount) {
+          console.error('Unknown tier:', targetTier);
+          return;
+        }
+
+        const formData = new FormData();
+        formData.append('requestType', 'decrement');
+        formData.append('tierAmount', tierAmount);
+        formData.append('decrementCount', '1');
+        formData.append('previousCount', previousCount.toString());
+        formData.append('newCount', newCount.toString());
+
+        console.log('Logging decrement to Google Sheet:', {
+          tierAmount,
+          previousCount,
+          newCount
+        });
+
+        const response = await fetch(GAS_DEPLOYMENT_URL, {
+          method: 'POST',
+          body: formData
+        });
+
+        const result = await response.json();
+        console.log('Decrement logged:', result);
+
+      } catch (error) {
+        console.error('Failed to log decrement:', error);
+        // 에러가 나도 카운터 차감은 계속 진행 (silent fail)
+      }
     }
 
     // ===== Form Submission with Enhanced Security =====
