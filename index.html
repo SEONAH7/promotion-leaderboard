@@ -1962,10 +1962,11 @@
             maxDecrement: 1
           };
         } else if (target === 6) {
-          // 6만달성 (10명): 1분기에 3명 차감
+          // 6만달성 (10명): 1분기에 2명 차감
+          // 2분기, 3분기, 4분기에 각각 2명씩 차감 (연중 8명 차감)
           decrementConfig = {
-            totalDecrements: 3,
-            intervalMs: (91 * 24 * 60 * 60 * 1000) / 3, // 91일을 3번에 나눔
+            totalDecrements: 2,
+            intervalMs: (91 * 24 * 60 * 60 * 1000) / 2, // 91일을 2번에 나눔
             minDecrement: 1,
             maxDecrement: 1
           };
