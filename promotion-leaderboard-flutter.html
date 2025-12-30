@@ -2036,7 +2036,16 @@
 
     // ===== Counter Animation Logic =====
     function initializeCounters() {
-      // 1/25 자정부터 차감 로직 시작 - 별도 함수에서 처리
+      // 초기값으로 복구
+      const counterElements = document.querySelectorAll('[data-target][data-current]');
+      counterElements.forEach(counter => {
+        const initialValue = parseInt(counter.dataset.current);
+        if (!isNaN(initialValue)) {
+          counter.textContent = initialValue;
+        }
+      });
+
+      // 1/25 자동 차감을 위한 스케줄러만 호출
       scheduleCounterDecrements();
     }
 
