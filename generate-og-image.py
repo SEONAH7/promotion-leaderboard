@@ -59,19 +59,7 @@ try:
 except:
     font = ImageFont.load_default()
 
-# Draw the message at the bottom with white background
-text_y = 560
-text_color = (0, 130, 255)  # #0082FF blue
-background_color = (255, 255, 255)  # white
-
-# Get text bounding box to center it
-bbox = draw.textbbox((0, 0), message, font=font)
-text_width = bbox[2] - bbox[0]
-text_height = bbox[3] - bbox[1]
-text_x = (1200 - text_width) // 2
-
-# Draw the text (no background box)
-draw.text((text_x, text_y), message, fill=text_color, font=font)
+# No text added to og-image (remove the message text)
 
 # Save the og image
 og_image.save(output_path, 'PNG', optimize=True)
