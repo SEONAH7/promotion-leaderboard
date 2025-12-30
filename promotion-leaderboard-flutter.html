@@ -2036,12 +2036,23 @@
 
     // ===== Counter Animation Logic =====
     function initializeCounters() {
-      // 아무것도 하지 않음 - HTML 초기값 유지
+      // 1/25부터 차감을 위한 스케줄러 호출
+      scheduleCounterDecrements();
     }
 
     // 1/25부터 자동 차감 스케줄러
     function scheduleCounterDecrements() {
-      // 현재는 비활성화 - 1/25부터 활성화될 예정
+      const now = new Date();
+      const startDate = new Date('2026-01-25T00:00:00');
+      const timeUntilStart = startDate.getTime() - now.getTime();
+
+      // 아직 1/25가 아니면, 1/25까지 기다린 후 시작
+      if (timeUntilStart > 0) {
+        setTimeout(startCounterDecrements, timeUntilStart);
+      } else {
+        // 이미 1/25 이후면 바로 시작
+        startCounterDecrements();
+      }
     }
 
     // 실제 차감 로직
