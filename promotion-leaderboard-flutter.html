@@ -2205,11 +2205,15 @@
         return;
       }
 
-      // 해당 카운터 찾기
-      const counter = document.querySelector(`[data-target="${targetTier}"] .counter-value, [data-target="${targetTier}"] .row-counter-value`);
+      // 해당 카운터 찾기 (PC 버전과 모바일 버전 모두 고려)
+      let counter = document.querySelector(`.counter-value[data-target="${targetTier}"]`);
+      if (!counter) {
+        counter = document.querySelector(`.row-counter-value[data-target="${targetTier}"]`);
+      }
 
       if (!counter) {
         console.error('Counter not found for tier:', targetTier);
+        console.log('Available counters:', Array.from(document.querySelectorAll('[data-target]')).map(el => el.getAttribute('data-target')));
         return;
       }
 
