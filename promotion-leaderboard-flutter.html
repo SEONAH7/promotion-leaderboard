@@ -2036,16 +2036,7 @@
 
     // ===== Counter Animation Logic =====
     function initializeCounters() {
-      // 초기값 복구 - data-current 값으로 설정
-      const counterElements = document.querySelectorAll('[data-target][data-current]');
-      counterElements.forEach(counter => {
-        const initialValue = parseInt(counter.dataset.current);
-        if (!isNaN(initialValue)) {
-          counter.textContent = initialValue;
-        }
-      });
-
-      // 1/25부터 차감을 위한 스케줄러 호출
+      // 스케줄러만 호출 - 초기값 복구는 하지 않음 (HTML 텍스트 그대로 유지)
       scheduleCounterDecrements();
     }
 
