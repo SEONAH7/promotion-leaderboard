@@ -1951,52 +1951,37 @@
         const initialValue = parseInt(counter.dataset.current);
 
         // 각 등급별 차감 전략
-        let decrementConfig;
+        let totalDecrements;
 
         if (target === 4) {
-          // 4만달성 (100명): 연중 23명 차감
-          // 1분기: 100→87명 (13명), 2분기: 87→76명 (7명), 3분기: 76→69명 (2명), 4분기: 69→64명 (1명)
-          decrementConfig = {
-            totalDecrements: 23,
-            intervalMs: (365 * 24 * 60 * 60 * 1000) / 23, // 365일을 23번에 나눔
-            minDecrement: 1,
-            maxDecrement: 1
-          };
+          // 4만달성: 100명 완전 소진
+          totalDecrements = 100;
         } else if (target === 6) {
-          // 6만달성 (10명): 1분기에 2명 차감
-          // 2분기, 3분기, 4분기에 각각 2명씩 차감 (연중 8명 차감)
-          decrementConfig = {
-            totalDecrements: 2,
-            intervalMs: (91 * 24 * 60 * 60 * 1000) / 2, // 91일을 2번에 나눔
-            minDecrement: 1,
-            maxDecrement: 1
-          };
+          // 6만달성: 10명 완전 소진
+          totalDecrements = 10;
         } else if (target === 8) {
-          // 8만달성 (10명): 1분기에 1명 정도만 차감
-          decrementConfig = {
-            totalDecrements: 1,
-            intervalMs: (91 * 24 * 60 * 60 * 1000) / 1, // 91일에 1명 차감
-            minDecrement: 1,
-            maxDecrement: 1
-          };
+          // 8만달성: 5명 소진 (5명 유지)
+          totalDecrements = 5;
         } else if (target === 10) {
-          // 10만달성 (1명): 유지
-          decrementConfig = {
-            totalDecrements: 0,
-            intervalMs: 0,
-            minDecrement: 0,
-            maxDecrement: 0
-          };
+          // 10만달성: 1명 완전 소진
+          totalDecrements = 1;
         }
 
-        if (decrementConfig && decrementConfig.totalDecrements > 0) {
-          let decrementCount = 0;
+        if (totalDecrements && totalDecrements > 0) {
+          // 랜덤한 기간으로 나눈 차감 일정 생성
+          // 총 366일을 totalDecrements개로 나누되, 각각 랜덤하게 배분
+          const totalMs = 366 * 24 * 60 * 60 * 1000; // 366일을 밀리초로
+          const intervals = generateRandomIntervals(totalDecrements, totalMs);
 
-          setInterval(() => {
-            if (decrementCount < decrementConfig.totalDecrements) {
+          let decrementCount = 0;
+          let cumulativeTime = 0;
+
+          intervals.forEach((interval, index) => {
+            cumulativeTime += interval;
+
+            setTimeout(() => {
               let currentCount = parseInt(counter.textContent);
-              const decrementValue = Math.floor(Math.random() * (decrementConfig.maxDecrement - decrementConfig.minDecrement + 1)) + decrementConfig.minDecrement;
-              let newCount = Math.max(0, currentCount - decrementValue);
+              let newCount = Math.max(0, currentCount - 1);
 
               counter.classList.add('updating');
 
@@ -2004,12 +1989,37 @@
                 counter.textContent = newCount;
                 counter.classList.remove('updating');
               }, 250);
-
-              decrementCount++;
-            }
-          }, decrementConfig.intervalMs);
+            }, cumulativeTime);
+          });
         }
       });
+
+      // 랜덤 인터벌 생성 함수
+      // totalMs 시간을 count개의 구간으로 나누되, 각 구간이 랜덤하게 분배됨
+      function generateRandomIntervals(count, totalMs) {
+        const intervals = [];
+        let remainingMs = totalMs;
+
+        for (let i = 0; i < count - 1; i++) {
+          // 남은 시간 중에서 랜덤하게 1일(86400000ms) ~ 30일(2592000000ms) 범위로 선택
+          const minInterval = 1 * 24 * 60 * 60 * 1000; // 1일
+          const maxInterval = 30 * 24 * 60 * 60 * 1000; // 30일
+
+          // 남은 구간 수를 고려하여 최대값 조정
+          const remainingCount = count - i;
+          const adjustedMax = Math.min(maxInterval, Math.floor(remainingMs / remainingCount));
+          const adjustedMin = Math.min(minInterval, adjustedMax);
+
+          const randomInterval = Math.floor(Math.random() * (adjustedMax - adjustedMin + 1)) + adjustedMin;
+          intervals.push(randomInterval);
+          remainingMs -= randomInterval;
+        }
+
+        // 마지막 구간은 남은 시간으로 채움
+        intervals.push(Math.max(1 * 24 * 60 * 60 * 1000, remainingMs));
+
+        return intervals;
+      }
     }
 
     // ===== Form Submission with Enhanced Security =====
