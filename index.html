@@ -1971,8 +1971,6 @@
 
     // 제출 상태 관리
     const submissionState = {
-      lastSubmitTime: 0,
-      minIntervalMs: 60000, // 최소 60초 간격
       successCount: 0
     };
 
@@ -1985,13 +1983,6 @@
         return;
       }
 
-      // Rate limiting 클라이언트 검사
-      const now = Date.now();
-      if (now - submissionState.lastSubmitTime < submissionState.minIntervalMs) {
-        const remainingSeconds = Math.ceil((submissionState.minIntervalMs - (now - submissionState.lastSubmitTime)) / 1000);
-        showMessage(`너무 빠르게 제출했습니다. ${remainingSeconds}초 후 다시 시도해주세요.`, 'error');
-        return;
-      }
 
       // Validate all fields
       const isRewardValid = window.validateRewardField();
@@ -2097,7 +2088,6 @@
             FlutterBridge.postMessage('submission_success', { email, name });
             form.reset();
             submissionState.successCount++;
-            submissionState.lastSubmitTime = Date.now();
 
             // Google Sheet 확인 링크 제시
             console.log('📊 Google Sheet에서 확인하세요: https://docs.google.com/spreadsheets/d/1c7pjecgIel9MAv2mf3hbyEJqzLwX_2nm3ZuHQ-P6XjQ/');
