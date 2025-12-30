@@ -2049,7 +2049,8 @@
 
     // ===== Counter Animation Logic =====
     function initializeCounters() {
-      const counterElements = document.querySelectorAll('.counter-value');
+      // PC 뷰와 모바일 뷰 모두 선택 (.counter-value 및 .row-counter-value)
+      const counterElements = document.querySelectorAll('.counter-value, .row-counter-value');
 
       counterElements.forEach(counter => {
         const target = parseInt(counter.dataset.target);
