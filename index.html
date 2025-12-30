@@ -2205,6 +2205,54 @@
       }
     }
 
+    /**
+     * 테스트 모드: 특정 카운터를 한 번 차감 (개발 및 검증용)
+     * @param {number} targetTier - 차감할 대상 (4, 6, 8, 10)
+     */
+    window.testDecrementCounter = function(targetTier) {
+      const tierMap = { 4: 40000, 6: 60000, 8: 80000, 10: 100000 };
+
+      if (!tierMap[targetTier]) {
+        console.error('Invalid tier:', targetTier);
+        console.log('Valid tiers: 4, 6, 8, 10');
+        return;
+      }
+
+      // 해당 카운터 찾기
+      const counter = document.querySelector(`[data-target="${targetTier}"] .counter-value, [data-target="${targetTier}"] .row-counter-value`);
+
+      if (!counter) {
+        console.error('Counter not found for tier:', targetTier);
+        return;
+      }
+
+      let currentCount = parseInt(counter.textContent);
+      let newCount = Math.max(0, currentCount - 1);
+
+      console.log(`[TEST] Decrementing tier ${targetTier}: ${currentCount} → ${newCount}`);
+
+      counter.classList.add('updating');
+
+      setTimeout(() => {
+        counter.textContent = newCount;
+        counter.classList.remove('updating');
+
+        // Google Sheet에 차감 내역 기록
+        logDecrementToSheet(targetTier, currentCount, newCount);
+
+        console.log(`[TEST] ✓ Counter updated and logged to Google Sheet`);
+      }, 250);
+    };
+
+    // 테스트 헬퍼 함수들
+    window.testDecrementAll = function() {
+      console.log('[TEST] Decrementing all counters once...');
+      window.testDecrementCounter(4);
+      setTimeout(() => window.testDecrementCounter(6), 500);
+      setTimeout(() => window.testDecrementCounter(8), 1000);
+      setTimeout(() => window.testDecrementCounter(10), 1500);
+    };
+
     // ===== Form Submission with Enhanced Security =====
     const form = document.getElementById('submissionForm');
     const message = document.getElementById('message');
