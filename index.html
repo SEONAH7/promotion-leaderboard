@@ -2058,10 +2058,19 @@
       const now = new Date();
       const startDate = new Date('2026-01-25T00:00:00');
       const timeUntilStart = startDate.getTime() - now.getTime();
+      const MAX_TIMEOUT = 2147483647; // setTimeout 최대값 (약 24.86일)
 
       // 아직 1/25가 아니면, 1/25까지 기다린 후 시작
       if (timeUntilStart > 0) {
-        setTimeout(startCounterDecrements, timeUntilStart);
+        if (timeUntilStart > MAX_TIMEOUT) {
+          // 타임아웃 최대값을 초과하면, 최대값으로 대기 후 재귀 호출
+          setTimeout(() => {
+            scheduleCounterDecrements();
+          }, MAX_TIMEOUT);
+        } else {
+          // 타임아웃 범위 내면 바로 시작
+          setTimeout(startCounterDecrements, timeUntilStart);
+        }
       } else {
         // 이미 1/25 이후면 바로 시작
         startCounterDecrements();
