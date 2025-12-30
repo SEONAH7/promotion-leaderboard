@@ -33,40 +33,11 @@ title_y = (630 - target_height) // 2
 # Paste the title image with alpha blending
 og_image.paste(title_img_resized, (title_x, title_y), title_img_resized)
 
-# Add sub text message at the bottom
-draw = ImageDraw.Draw(og_image)
-
-# Message text
-message = "송금하고 쿠폰부터 아이패드까지 받아가세요!"
-
-# Try to use a nice font
-try:
-    font_paths = [
-        '/System/Library/Fonts/Arial.ttf',
-        '/System/Library/Fonts/Helvetica.ttc',
-        '/Library/Fonts/Arial.ttf',
-    ]
-    font = None
-    for font_path in font_paths:
-        if os.path.exists(font_path):
-            try:
-                font = ImageFont.truetype(font_path, 36)
-                break
-            except:
-                continue
-    if not font:
-        font = ImageFont.load_default()
-except:
-    font = ImageFont.load_default()
-
-# No text added to og-image (remove the message text)
-
 # Save the og image
 og_image.save(output_path, 'PNG', optimize=True)
 print(f'✓ OG image generated successfully!')
 print(f'✓ Title image: {title_image_path}')
 print(f'✓ Title resized from {title_img.size} to {title_img_resized.size}')
 print(f'✓ Title centered at position: ({title_x}, {title_y})')
-print(f'✓ Hooking message: {message}')
 print(f'✓ Saved to: {output_path}')
 print(f'✓ Dimensions: 1200x630')
