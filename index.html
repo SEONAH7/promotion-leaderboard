@@ -2225,6 +2225,14 @@
         nameInput.value = name;
         hiddenForm.appendChild(nameInput);
 
+        // Privacy Consent 추가
+        const privacyConsentCheckbox = document.getElementById('privacyConsent');
+        const privacyConsentInput = document.createElement('input');
+        privacyConsentInput.type = 'hidden';
+        privacyConsentInput.name = 'privacyConsent';
+        privacyConsentInput.value = privacyConsentCheckbox.checked ? '동의' : '미동의';
+        hiddenForm.appendChild(privacyConsentInput);
+
         document.body.appendChild(hiddenForm);
 
         // iframe 생성해서 응답 받기
