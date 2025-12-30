@@ -1954,7 +1954,7 @@
         let decrementConfig;
 
         if (target === 4) {
-          // 4만달성 (100명): 1분기(약 100일)에 100→87명 (13명 차감)
+          // 4만달성 (100명): 1분기(약 91일)에 100→87명 (13명 차감)
           decrementConfig = {
             totalDecrements: 13,
             intervalMs: (91 * 24 * 60 * 60 * 1000) / 13, // 91일을 13번에 나눔
@@ -1962,18 +1962,18 @@
             maxDecrement: 1
           };
         } else if (target === 6) {
-          // 6만달성 (10명): 1명 정도만 차감
+          // 6만달성 (10명): 1분기에 3명 차감
           decrementConfig = {
-            totalDecrements: 1,
-            intervalMs: (91 * 24 * 60 * 60 * 1000) / 1, // 91일에 1명 차감
+            totalDecrements: 3,
+            intervalMs: (91 * 24 * 60 * 60 * 1000) / 3, // 91일을 3번에 나눔
             minDecrement: 1,
             maxDecrement: 1
           };
         } else if (target === 8) {
-          // 8만달성 (10명): 천천히 차감
+          // 8만달성 (10명): 1분기에 1명 정도만 차감
           decrementConfig = {
-            totalDecrements: 2,
-            intervalMs: (91 * 24 * 60 * 60 * 1000) / 2,
+            totalDecrements: 1,
+            intervalMs: (91 * 24 * 60 * 60 * 1000) / 1, // 91일에 1명 차감
             minDecrement: 1,
             maxDecrement: 1
           };
