@@ -31,7 +31,14 @@ title_x = (1200 - target_width) // 2
 title_y = (630 - target_height) // 2
 
 # Paste the title image with alpha blending
-og_image.paste(title_img_resized, (title_x, title_y), title_img_resized)
+# Convert RGBA to RGB for pasting
+if title_img_resized.mode == 'RGBA':
+    # Create a white background for the title image area
+    title_bg = Image.new('RGB', (1200, 630), color=(240, 247, 255))
+    title_bg.paste(title_img_resized, (title_x, title_y), title_img_resized)
+    og_image = title_bg
+else:
+    og_image.paste(title_img_resized, (title_x, title_y))
 
 # Save the og image
 og_image.save(output_path, 'PNG', optimize=True)
