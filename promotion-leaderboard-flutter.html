@@ -1,0 +1,2258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>2026 한도소진 이벤트</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.themoin.com/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.themoin.com/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.themoin.com/apple-touch-icon.png">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="2026 한도소진 이벤트">
+  <meta property="og:description" content="송금하고 쿠폰부터 아이패드받자">
+  <meta property="og:image" content="https://promotion-leaderboard.vercel.app/og-image-1767006930.png">
+  <meta property="og:url" content="https://promotion-leaderboard.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="모인">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="2026 한도소진 이벤트">
+  <meta name="twitter:description" content="송금하고 쿠폰부터 아이패드받자">
+  <meta name="twitter:image" content="https://promotion-leaderboard.vercel.app/og-image-1767006930.png">
+
+  <!-- Cache buster v3.0 -->
+  <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+
+  <!-- Flutter WebView 호환성 설정 -->
+  <meta name="flutter-webview" content="true">
+  <script>
+    // Flutter와 통신하기 위한 Bridge
+    window.addEventListener('flutter-webview-ready', function() {
+      console.log('Flutter WebView Ready');
+      window.flutterReady = true;
+    });
+
+    // Flutter Native와 통신
+    if (window.flutter) {
+      console.log('Flutter environment detected');
+    }
+  </script>
+
+  <style>
+    /* ===== Design System CSS Variables ===== */
+    :root {
+      /* Spacing */
+      --spacing-xxs-0: 8px;
+      --spacing-xxs-1: 4px;
+      --spacing-xxs: 12px;
+      --spacing-xs: 16px;
+      --spacing-s: 20px;
+      --spacing-m: 24px;
+      --spacing-l: 32px;
+
+      /* Border Radius */
+      --border-radius-small: 4px;
+      --border-radius-medium: 8px;
+      --border-radius-pill: 999px;
+
+      /* Colors - Greyscale */
+      --grey-00: #FFFFFF;
+      --grey-05: #F7F7F8;
+      --grey-10: #F3F5F8;
+      --grey-15: #ECEDEF;
+      --grey-20: #E6E9EB;
+      --grey-30: #DADDDF;
+      --grey-40: #CAD0D4;
+      --grey-45: #A9ABB4;
+      --grey-60: #6B6C74;
+      --grey-80: #2F3133;
+      --grey-90: #1A1B22;
+      --grey-100: #000000;
+
+      /* Colors - Primary Blue */
+      --primary-10: #F5FAFF;
+      --primary-20: #ECF6FF;
+      --primary-30: #C9E4FF;
+      --primary-60: #0082FF;
+      --primary-hover: #1E3EB9;
+
+      /* Colors - Functional */
+      --red-10: #FFF2F4;
+      --red-error: #EE2139;
+      --text-error: #EE2139;
+      --border-error: #EE2139;
+
+      /* Colors - Common */
+      --bg-white: #FFF;
+      --bg-grey: #F3F5F8;
+      --bg-lightgrey: #F7F7F8;
+      --bg-input: #F7F7F8;
+      --btn-primary: #0082FF;
+      --btn-primary-hover: #1E3EB9;
+      --btn-disabled: #E6E9EB;
+      --border-default: #E6E9EB;
+      --border-interactive-black: #1A1B22;
+      --dim-40: rgba(0, 0, 0, 0.4);
+      --text-title: #1A1B22;
+      --text-disabled: #A9ABB4;
+
+      /* Z-Index */
+      --z-index-modal: 800;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background: linear-gradient(135deg, #D4E8F7 0%, #E8F4FC 100%);
+      }
+      50% {
+        background: linear-gradient(135deg, #E8F4FC 0%, #D4E8F7 100%);
+      }
+      100% {
+        background: linear-gradient(135deg, #D4E8F7 0%, #E8F4FC 100%);
+      }
+    }
+
+    @keyframes float1 {
+      0%, 100% {
+        transform: translateY(0px) translateX(0px);
+        opacity: 0.05;
+      }
+      25% {
+        transform: translateY(-20px) translateX(15px);
+        opacity: 0.1;
+      }
+      50% {
+        transform: translateY(-40px) translateX(-15px);
+        opacity: 0.08;
+      }
+      75% {
+        transform: translateY(-20px) translateX(10px);
+        opacity: 0.06;
+      }
+    }
+
+    @keyframes float2 {
+      0%, 100% {
+        transform: translateY(0px) translateX(0px);
+        opacity: 0.04;
+      }
+      25% {
+        transform: translateY(-30px) translateX(-20px);
+        opacity: 0.08;
+      }
+      50% {
+        transform: translateY(-50px) translateX(20px);
+        opacity: 0.06;
+      }
+      75% {
+        transform: translateY(-25px) translateX(-10px);
+        opacity: 0.05;
+      }
+    }
+
+    @keyframes float3 {
+      0%, 100% {
+        transform: translateY(0px) translateX(0px);
+        opacity: 0.03;
+      }
+      25% {
+        transform: translateY(-25px) translateX(25px);
+        opacity: 0.07;
+      }
+      50% {
+        transform: translateY(-45px) translateX(-25px);
+        opacity: 0.05;
+      }
+      75% {
+        transform: translateY(-30px) translateX(15px);
+        opacity: 0.04;
+      }
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: SpoqaSans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #FFFFFF;
+      color: #1A1B22;
+      line-height: 1.6;
+      -webkit-user-select: none;
+      user-select: none;
+      overflow-x: hidden;
+    }
+
+    body {
+      padding: 16px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      position: relative;
+      background: linear-gradient(135deg, rgba(212, 232, 247, 0.3) 0%, rgba(232, 244, 252, 0.3) 100%),
+                  url('images/coin-1.png') 15% 20% / 120px no-repeat,
+                  url('images/coin-2.png') 85% 60% / 140px no-repeat,
+                  url('images/coin-3.png') 10% 75% / 100px no-repeat,
+                  #F0F7FF;
+      background-attachment: fixed, fixed, fixed, fixed, scroll;
+    }
+
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    body::before {
+      display: block;
+    }
+
+    body::after {
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 12px;
+      }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ===== Header ===== */
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+      padding-top: 20px;
+    }
+
+    .header img {
+      max-width: 15%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .header h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      line-height: 1.2;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #5B9FDB, #0052B3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+    }
+
+    .header p {
+      font-size: 16px;
+      color: #6B6C74;
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        margin-bottom: 30px;
+        padding-top: 12px;
+      }
+
+      .header img {
+        max-width: 17.5%;
+      }
+
+      .header h1 {
+        font-size: 36px;
+        margin-bottom: 6px;
+      }
+
+      .header p {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header {
+        margin-bottom: 24px;
+        padding-top: 8px;
+      }
+
+      .header img {
+        max-width: 25%;
+      }
+
+      .header h1 {
+        font-size: 28px;
+      }
+
+      .header p {
+        font-size: 13px;
+      }
+
+      .badge-new {
+        font-size: 10px;
+        padding: 4px 8px;
+        margin-top: 8px;
+      }
+    }
+
+    .badge-new {
+      display: inline-block;
+      background: linear-gradient(135deg, #0082FF, #1E3EB9);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: 12px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ===== Table-based Leaderboard (Desktop/Tablet) ===== */
+    .leaderboard-wrapper {
+      margin-bottom: 40px;
+    }
+
+    .leaderboard-description {
+      text-align: center;
+      font-size: 14px;
+      color: #6B6C74;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .leaderboard-description {
+        font-size: 13px;
+        margin-top: 8px;
+        margin-bottom: 5px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .leaderboard-description {
+        font-size: 12px;
+        margin-top: 8px;
+        margin-bottom: 5px;
+      }
+    }
+
+    .leaderboard-table-container {
+      display: inline-block;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--border-default);
+      margin: 0 auto;
+      width: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      position: relative;
+    }
+
+    .leaderboard-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: white;
+    }
+
+    .leaderboard-table thead {
+      background: linear-gradient(135deg, var(--primary-60), var(--primary-hover));
+    }
+
+    .leaderboard-table th {
+      padding: 20px 24px;
+      text-align: center;
+      font-size: 20pt;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--primary-hover);
+    }
+
+    .leaderboard-table th.col-player {
+      width: 16.665%;
+    }
+
+    .leaderboard-table th.col-earning {
+      width: 16.665%;
+    }
+
+    .leaderboard-table th.col-champion {
+      width: 16.67%;
+    }
+
+    .trophy-icon {
+      display: inline-block;
+      margin-right: 6px;
+      font-size: 16px;
+      vertical-align: middle;
+    }
+
+    .leaderboard-table tbody tr {
+      transition: all 0.2s ease;
+      border-bottom: 1px solid var(--grey-20);
+    }
+
+    .leaderboard-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .leaderboard-table tbody tr:hover {
+      background: linear-gradient(135deg, var(--primary-10), var(--primary-20));
+      transform: scale(1.01);
+      box-shadow: 0 2px 12px rgba(0, 130, 255, 0.15);
+    }
+
+    .leaderboard-table tbody tr:active {
+      transform: scale(0.99);
+    }
+
+    .leaderboard-table td {
+      padding: 20px;
+      font-size: 16px;
+      color: var(--text-title);
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    /* Player Cell (보상 조건) */
+    .player-cell {
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .tier-text {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--grey-90);
+    }
+
+    /* Earning Cell (혜택) */
+    .earning-cell {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--primary-60);
+      letter-spacing: -0.2px;
+    }
+
+    .tier-row[data-tier="20000"] .earning-cell {
+      font-size: 19px;
+    }
+
+    .tier-row[data-tier="40000"] .earning-cell {
+      font-size: 19px;
+    }
+
+    .tier-row[data-tier="60000"] .earning-cell {
+      font-size: 19px;
+    }
+
+    .tier-row[data-tier="80000"] .earning-cell {
+      font-size: 19px;
+    }
+
+    .tier-row[data-tier="100000"] .earning-cell {
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
+      font-size: 19px;
+    }
+
+    /* Champion Cell (잔여 인원) */
+    .champion-cell {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--grey-90);
+    }
+
+    .champion-cell .counter-value {
+      display: inline-block;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--primary-60);
+      margin-right: 4px;
+      min-width: 50px;
+      text-align: right;
+    }
+
+    /* Mobile: Hide table, show cards */
+    .leaderboard-cards-mobile {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .leaderboard-table th {
+        padding: 16px 20px;
+        font-size: 13px;
+      }
+
+      .leaderboard-table td {
+        padding: 20px;
+        font-size: 15px;
+      }
+
+      .tier-text {
+        font-size: 16px;
+      }
+
+      .earning-cell {
+        font-size: 19px;
+      }
+
+      .champion-cell .counter-value {
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* Hide table on mobile */
+      .leaderboard-table-container {
+        display: none;
+      }
+
+      /* Show cards on mobile */
+      .leaderboard-cards-mobile {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+    }
+
+    /* ===== Leaderboard Cards Grid ===== */
+    .leaderboard-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 1200px) {
+      .leaderboard-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .leaderboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .leaderboard-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+    }
+
+    .leaderboard-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, var(--primary-60), var(--primary-hover));
+      border-radius: 12px 12px 0 0;
+      margin-bottom: 0;
+    }
+
+    .header-tier,
+    .header-earning,
+    .header-remaining {
+      flex: 1;
+      font-size: 13px;
+      font-weight: 700;
+      color: white;
+      text-align: left;
+    }
+
+    .header-earning {
+      text-align: center;
+    }
+
+    .header-remaining {
+      text-align: right;
+    }
+
+    .leaderboard-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 15px;
+      background: white;
+      border: 1px solid #E6E9EB;
+      border-radius: 0;
+      margin-bottom: 0;
+      transition: all 0.2s ease;
+      border-top: none;
+    }
+
+    .leaderboard-row:first-child {
+      border-radius: 0;
+      border-top: 1px solid #E6E9EB;
+    }
+
+    .leaderboard-row:last-child {
+      border-radius: 0 0 12px 12px;
+    }
+
+    .leaderboard-row:hover {
+      background: linear-gradient(135deg, var(--primary-10), var(--primary-20));
+    }
+
+    .row-tier {
+      flex: 1;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--grey-90);
+      text-align: left;
+    }
+
+    .row-earning {
+      flex: 1;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary-60);
+      text-align: center;
+    }
+
+    .row-remaining {
+      flex: 1;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--grey-90);
+      text-align: right;
+    }
+
+    .row-counter-value {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--primary-60);
+      margin-right: 4px;
+    }
+
+    .reward-info {
+      background: #F7F7F8;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+      font-size: 13px;
+      line-height: 1.5;
+      width: 100%;
+    }
+
+    .reward-info.highlighted {
+      background: linear-gradient(135deg, #FFF5E6 0%, #FFF9F0 100%);
+      border: 2px solid #FFD700;
+      padding: 24px 16px;
+      border-radius: 8px;
+      min-height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .reward-info strong {
+      color: #1A1B22;
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .reward-info.highlighted strong {
+      color: #FF6B35;
+    }
+
+    .reward-info span {
+      color: #6B6C74;
+      font-size: 12px;
+      display: block;
+    }
+
+    .benefit-text {
+      color: #1A1B22;
+      font-size: 96px;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+      display: block;
+      line-height: 1;
+      word-break: break-word;
+    }
+
+    .benefit-desc {
+      color: #1A1B22;
+      font-size: 16px;
+      margin: 0;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    /* ===== Mobile Responsive: Small Devices ===== */
+    @media (max-width: 768px) {
+      .benefit-text {
+        font-size: 64px;
+      }
+
+      .benefit-desc {
+        font-size: 14px;
+      }
+
+      .reward-info.highlighted {
+        padding: 16px 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .benefit-text {
+        font-size: 48px;
+      }
+
+      .benefit-desc {
+        font-size: 13px;
+      }
+
+      .reward-info.highlighted {
+        padding: 12px 8px;
+      }
+
+      .counter-value {
+        font-size: 32px;
+      }
+
+      .counter-text {
+        font-size: 12px;
+      }
+
+      .counter-label {
+        font-size: 10px;
+      }
+    }
+
+    /* Counter with dynamic updates */
+    .counter-section {
+      padding: 16px;
+      background: linear-gradient(135deg, #ECF6FF, #F5FAFF);
+      border-radius: 8px;
+      text-align: center;
+      border: 2px solid #C9E4FF;
+    }
+
+    .counter-label {
+      font-size: 11px;
+      color: #6B6C74;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      letter-spacing: 0.3px;
+    }
+
+    .counter-value {
+      font-size: 40px;
+      font-weight: 700;
+      color: #0082FF;
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+
+    .counter-text {
+      font-size: 14px;
+      color: #1A1B22;
+      font-weight: 600;
+    }
+
+    .update-info {
+      font-size: 10px;
+      color: #A9ABB4;
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    /* ===== Submission Form Section ===== */
+    .form-section {
+      background: white;
+      border-radius: 16px;
+      padding: 40px 32px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 2px solid #0082FF;
+      display: inline-block;
+      width: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      position: relative;
+    }
+
+    .form-section h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1A1B22;
+      margin-bottom: 2px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .form-section {
+        padding: 28px 24px;
+        border-radius: 12px;
+      }
+
+      .form-section h2 {
+        font-size: 20px;
+        gap: 10px;
+      }
+
+      .form-section h2 span:first-child {
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 24px !important;
+      }
+
+      .form-section h2 span:last-child {
+        width: 48px !important;
+      }
+
+      .form-section p {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .form-section {
+        padding: 20px 16px;
+        border-radius: 10px;
+        width: auto;
+        left: auto;
+        transform: none;
+        position: static;
+        margin: 0 auto;
+      }
+
+      .form-section h2 {
+        font-size: 18px;
+        gap: 8px;
+      }
+
+      .form-section h2 span:first-child {
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 20px !important;
+      }
+
+      .form-section h2 span:last-child {
+        width: 40px !important;
+      }
+
+      .form-section p {
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+
+      .mbp-textfield__input {
+        height: 20px;
+        font-size: 16px;
+      }
+    }
+
+    .form-section h2::before {
+      content: '';
+      display: block;
+    }
+
+    .form-section h2::after {
+      content: '';
+      display: block;
+    }
+
+    .form-section p {
+      font-size: 14.5px;
+      color: #6B6C74;
+      text-align: center;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== Path/Helper Box (based on MBP design system) ===== */
+    .form-helper-box {
+      background: var(--bg-lightgrey);
+      border-radius: var(--border-radius-small);
+      padding: var(--spacing-xxs) var(--spacing-xs);
+      margin-bottom: var(--spacing-xxs);
+      font-size: 12px;
+      color: var(--grey-60);
+      border-left: 3px solid var(--btn-primary);
+      box-sizing: border-box;
+    }
+
+    /* ===== MBP TextField Component ===== */
+    .mbp-textfield {
+      display: inline-block;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .mbp-textfield--width-filled {
+      width: 100%;
+    }
+
+    .mbp-textfield__wrapper {
+      width: 100%;
+      color: var(--text-title);
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xxs-0);
+      box-sizing: border-box;
+      border-radius: var(--border-radius-small);
+      border: 1px solid transparent;
+      padding: var(--spacing-xs);
+      background: var(--bg-input);
+      border-color: var(--bg-input);
+      transition: all 0.2s ease;
+    }
+
+    .mbp-textfield--focus .mbp-textfield__wrapper {
+      background: var(--bg-white);
+      border-color: var(--border-interactive-black);
+    }
+
+    .mbp-textfield--error .mbp-textfield__wrapper {
+      background: var(--red-10);
+      border-color: var(--red-10);
+    }
+
+    .mbp-textfield__input {
+      background: transparent;
+      border: none;
+      padding: 0;
+      outline: none;
+      width: 100%;
+      color: var(--text-title);
+      font-family: SpoqaSans, Arial, Helvetica, sans-serif;
+      height: 24px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .mbp-textfield__input::placeholder {
+      color: var(--text-disabled);
+    }
+
+    /* ===== MBP TextField Size Variants ===== */
+    .mbp-textfield--medium .mbp-textfield__wrapper {
+      padding: var(--spacing-xs);
+      border-radius: var(--border-radius-small);
+      border: 1px solid transparent;
+    }
+
+    /* ===== MBP TextField Solid Style with Error State ===== */
+    .mbp-textfield--solid .mbp-textfield__wrapper {
+      background: var(--bg-input);
+      border-color: var(--bg-input);
+    }
+
+    .mbp-textfield--solid.mbp-textfield--focus .mbp-textfield__wrapper {
+      background: var(--bg-white);
+      border-color: var(--border-interactive-black);
+    }
+
+    .mbp-textfield--solid:not(.mbp-textfield--disabled).mbp-textfield--error:not(.mbp-textfield--focus) .mbp-textfield__wrapper {
+      background: var(--red-10);
+      border-color: var(--red-10);
+    }
+
+    /* ===== MBP TextField Error Message ===== */
+    .mbp-textfield__error-message {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1;
+      color: var(--text-error);
+      margin-top: 0;
+    }
+
+    .mbp-textfield--medium .mbp-textfield__error-message {
+      margin-top: var(--spacing-xxs-0);
+    }
+
+    /* ===== MBP TextField Error Input Text Color ===== */
+    .mbp-textfield--error:not(.mbp-textfield--focus) .mbp-textfield__input {
+      color: var(--text-error);
+    }
+
+    /* ===== MBP TextField Exclamation Icon ===== */
+    .mbp-textfield__exclamation {
+      flex-shrink: 0;
+      color: var(--red-error);
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    /* ===== MBP TextField Adornments ===== */
+    .mbp-textfield__adornment {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xxs-0);
+    }
+
+    /* ===== Select Dropdown ===== */
+    .mbp-select {
+      display: inline-block;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .mbp-select__wrapper {
+      width: 100%;
+      color: var(--text-title);
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xxs-0);
+      box-sizing: border-box;
+      border-radius: var(--border-radius-small);
+      border: 1px solid transparent;
+      padding: 0 var(--spacing-xs);
+      background: var(--bg-input);
+      border-color: var(--bg-input);
+      transition: all 0.2s ease;
+      position: relative;
+      height: 56px;
+    }
+
+    .mbp-select--focus .mbp-select__wrapper {
+      background: var(--bg-white);
+      border-color: var(--border-interactive-black);
+    }
+
+    .mbp-select--error .mbp-select__wrapper {
+      background: var(--red-10);
+      border-color: var(--red-10);
+    }
+
+    .mbp-select__input {
+      background: transparent;
+      border: none;
+      padding: 0;
+      outline: none;
+      width: 100%;
+      color: var(--text-title);
+      font-family: SpoqaSans, Arial, Helvetica, sans-serif;
+      height: 100%;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+      padding-right: 24px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%231A1B22' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+    }
+
+    .mbp-select__input option {
+      background: white;
+      color: #1A1B22;
+      padding: 8px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .mbp-select__input option:first-child {
+      color: var(--text-disabled);
+    }
+
+    .mbp-select__input:disabled {
+      cursor: not-allowed;
+      color: var(--text-disabled);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23A9ABB4' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    }
+
+    .mbp-select__error-message {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1;
+      color: var(--text-error);
+      margin-top: var(--spacing-xxs-0);
+    }
+
+    .form-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1A1B22;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .form-label .required {
+      color: #EE2139;
+      font-weight: 700;
+    }
+
+    .form-input {
+      width: 100%;
+      border: none;
+      font-size: 18px;
+      font-family: inherit;
+      transition: all 0.2s ease;
+      background: transparent;
+      padding: 0;
+      color: var(--text-title);
+      outline: none;
+    }
+
+    .form-input::placeholder {
+      color: #A9ABB4;
+    }
+
+    /* ===== MBP Button Component ===== */
+    .mbp-button {
+      box-sizing: border-box;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid;
+      font-family: SpoqaSans, Arial, Helvetica, sans-serif;
+      text-decoration: none;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+
+    .mbp-button[disabled],
+    .mbp-button.mbp-button--disabled {
+      cursor: auto;
+    }
+
+    .mbp-button--medium {
+      padding: var(--spacing-xxs) var(--spacing-xs);
+      gap: var(--spacing-xxs);
+    }
+
+    .mbp-button--large {
+      padding: var(--spacing-xs) var(--spacing-s);
+      gap: var(--spacing-xxs);
+    }
+
+    .mbp-button--width-filled {
+      width: 100%;
+    }
+
+    .mbp-button--primary.mbp-button--solid {
+      background: var(--btn-primary);
+      border-color: var(--btn-primary);
+    }
+
+    .mbp-button--primary.mbp-button--solid:hover:not([disabled]):not(.mbp-button--disabled) {
+      background: var(--btn-primary-hover);
+      border-color: var(--btn-primary-hover);
+    }
+
+    .mbp-button--primary.mbp-button--solid[disabled],
+    .mbp-button--primary.mbp-button--solid.mbp-button--disabled {
+      background: var(--primary-20);
+      border-color: var(--primary-20);
+    }
+
+    .mbp-button__label {
+      line-height: 1;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--grey-00);
+    }
+
+    .mbp-button__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      color: var(--grey-00);
+    }
+
+    .mbp-button:focus-visible {
+      outline: 2px solid var(--btn-primary);
+      outline-offset: 2px;
+    }
+
+    /* ===== MBP Icon Button Component ===== */
+    .mbp-icon-button {
+      box-sizing: border-box;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid;
+      border-radius: var(--border-radius-small);
+      text-decoration: none;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+
+    .mbp-icon-button[disabled],
+    .mbp-icon-button.mbp-icon-button--disabled {
+      cursor: auto;
+    }
+
+    .mbp-icon-button--medium {
+      padding: var(--spacing-xxs);
+    }
+
+    .mbp-icon-button--secondary.mbp-icon-button--outlined {
+      background: var(--bg-white);
+      border-color: var(--grey-80);
+    }
+
+    .mbp-icon-button--secondary.mbp-icon-button--outlined:hover:not([disabled]):not(.mbp-icon-button--disabled) {
+      background: var(--grey-15);
+      border-color: var(--border-interactive-black);
+    }
+
+    .mbp-icon-button__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      color: var(--bg-darkgrey, #2F3133);
+    }
+
+    .mbp-icon-button:focus-visible {
+      outline: 2px solid var(--btn-primary);
+      outline-offset: 2px;
+    }
+
+    /* Submit Button */
+    .button-wrapper {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .submit-button {
+      flex: 1;
+      padding: 16px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+      -webkit-user-select: none;
+      user-select: none;
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #0082FF;
+      color: white;
+    }
+
+    .submit-button::before {
+      content: '✈';
+      font-size: 18px;
+    }
+
+    .submit-button:hover {
+      background: #1E3EB9;
+    }
+
+    .submit-button:active {
+      transform: scale(0.98);
+      opacity: 0.9;
+    }
+
+    .submit-button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .reset-button {
+      background: transparent;
+      color: #6B6C74;
+      border: 1px solid #E6E9EB;
+      flex: 0 0 auto;
+      width: 52px;
+      padding: 0;
+      font-size: 22px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .reset-button::before {
+      content: '↻';
+    }
+
+    .reset-button:hover {
+      background: #F7F7F8;
+    }
+
+    .reset-button:active {
+      background: #E6E9EB;
+    }
+
+    /* Success Message */
+    .message {
+      margin-top: 16px;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 14px;
+      display: none;
+      line-height: 1.4;
+    }
+
+    .message.success {
+      background: #ECF6FF;
+      color: #0082FF;
+      border: 1px solid #C9E4FF;
+    }
+
+    .message.error {
+      background: #FFF2F4;
+      color: #EE2139;
+      border: 1px solid #FFD5DD;
+    }
+
+    /* ===== Privacy Consent Section ===== */
+    .privacy-consent-section {
+      background: #F5F7FA;
+      border: 1px solid #E6E9EB;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
+
+    .privacy-consent-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .privacy-consent-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .privacy-consent-checkbox {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      cursor: pointer;
+      accent-color: #0082FF;
+    }
+
+    .privacy-consent-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .privacy-consent-text label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1A1B22;
+      cursor: pointer;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .privacy-consent-text .description {
+      font-size: 12px;
+      font-weight: 400;
+      color: #6B6C74;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .privacy-consent-error {
+      color: #EE2139;
+      font-size: 12px;
+      font-weight: 400;
+      margin-top: 8px;
+      display: none;
+    }
+
+    .privacy-consent-error.show {
+      display: block;
+    }
+
+    /* ===== Notice Section ===== */
+    .notice-section {
+      background: white;
+      border-radius: 16px;
+      padding: 40px 32px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid #E6E9EB;
+      display: inline-block;
+      width: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      position: relative;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .notice-section h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1A1B22;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .notice-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .notice-section li {
+      font-size: 13px;
+      font-weight: 400;
+      color: #6B6C74;
+      line-height: 1.8;
+      margin-bottom: 12px;
+      text-align: left;
+      margin-left: 24px;
+      position: relative;
+      padding-left: 0;
+    }
+
+    .notice-section li::before {
+      content: '•';
+      position: absolute;
+      left: -12px;
+      font-weight: 700;
+      color: #1A1B22;
+      font-size: 16px;
+    }
+
+    .notice-section li:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      .notice-section {
+        padding: 28px 24px;
+        border-radius: 12px;
+      }
+
+      .notice-section h3 {
+        font-size: 16px;
+      }
+
+      .notice-section li {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .notice-section {
+        padding: 20px 16px;
+        border-radius: 10px;
+        width: auto;
+        left: auto;
+        transform: none;
+        position: static;
+        margin: 20px auto;
+      }
+
+      .notice-section h3 {
+        font-size: 15px;
+      }
+
+      .notice-section li {
+        font-size: 11px;
+      }
+    }
+
+    /* Loading State */
+    .submit-button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.6;
+      }
+    }
+
+    .counter-value.updating {
+      animation: pulse 0.5s ease-in-out;
+    }
+
+    /* Safe Area Support (iPhone notch) */
+    @supports (padding: max(0px)) {
+      body {
+        padding-left: max(16px, env(safe-area-inset-left));
+        padding-right: max(16px, env(safe-area-inset-right));
+        padding-bottom: max(16px, env(safe-area-inset-bottom));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <img src="images/title.png" alt="2026 모인 통합한도 상향 EVENT" style="max-width: 100%; height: auto; display: block;">
+    </div>
+
+    <!-- Leaderboard Description -->
+    <div class="leaderboard-description">
+      *잔여 인원은 실시간으로 업데이트 됩니다.
+    </div>
+
+    <!-- Leaderboard Table & Cards -->
+    <div class="leaderboard-wrapper">
+      <!-- Desktop/Tablet Table -->
+      <div class="leaderboard-table-container">
+        <table class="leaderboard-table">
+          <thead>
+            <tr>
+              <th class="col-player">보상 조건</th>
+              <th class="col-earning">혜택</th>
+              <th class="col-champion">잔여 인원</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="tier-row" data-tier="20000">
+              <td class="player-cell">
+                <span class="tier-text">$ 2만 달성</span>
+              </td>
+              <td class="earning-cell">5,000원 쿠폰</td>
+              <td class="champion-cell">
+                <span class="counter-value" style="font-size: 28px; font-weight: 800; color: var(--primary-60); margin-right: 4px; min-width: auto; text-align: right;">전원</span>
+              </td>
+            </tr>
+            <tr class="tier-row" data-tier="40000">
+              <td class="player-cell">
+                <span class="tier-text">$ 4만 달성</span>
+              </td>
+              <td class="earning-cell">3만원 현금</td>
+              <td class="champion-cell">
+                <span class="counter-value" data-target="4" data-current="100">100</span>명
+              </td>
+            </tr>
+            <tr class="tier-row" data-tier="60000">
+              <td class="player-cell">
+                <span class="tier-text">$ 6만 달성</span>
+              </td>
+              <td class="earning-cell">5만원 현금</td>
+              <td class="champion-cell">
+                <span class="counter-value" data-target="6" data-current="10">10</span>명
+              </td>
+            </tr>
+            <tr class="tier-row" data-tier="80000">
+              <td class="player-cell">
+                <span class="tier-text">$ 8만 달성</span>
+              </td>
+              <td class="earning-cell">10만원 현금</td>
+              <td class="champion-cell">
+                <span class="counter-value" data-target="8" data-current="10">10</span>명
+              </td>
+            </tr>
+            <tr class="tier-row" data-tier="100000">
+              <td class="player-cell">
+                <span class="tier-text">$ 10만 달성</span>
+              </td>
+              <td class="earning-cell">아이패드 A16 실버</td>
+              <td class="champion-cell">
+                <span class="counter-value" data-target="10" data-current="1">1</span>명
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mobile Cards (hidden on desktop) -->
+      <div class="leaderboard-cards-mobile">
+        <!-- Mobile Header -->
+        <div class="leaderboard-header">
+          <span class="header-tier">보상 조건</span>
+          <span class="header-earning">혜택</span>
+          <span class="header-remaining">잔여 인원</span>
+        </div>
+
+        <div class="leaderboard-grid">
+          <!-- 2만 달성 -->
+          <div class="leaderboard-row">
+            <span class="row-tier">$ 2만 달성</span>
+            <span class="row-earning">5,000원 쿠폰</span>
+            <span class="row-remaining"><span class="row-counter-value">전원</span></span>
+          </div>
+
+          <!-- 4만 달성 -->
+          <div class="leaderboard-row">
+            <span class="row-tier">$ 4만 달성</span>
+            <span class="row-earning">3만원 현금</span>
+            <span class="row-remaining"><span class="row-counter-value" data-target="4" data-current="100">100</span>명</span>
+          </div>
+
+          <!-- 6만 달성 -->
+          <div class="leaderboard-row">
+            <span class="row-tier">$ 6만 달성</span>
+            <span class="row-earning">5만원 현금</span>
+            <span class="row-remaining"><span class="row-counter-value" data-target="6" data-current="10">10</span>명</span>
+          </div>
+
+          <!-- 8만 달성 -->
+          <div class="leaderboard-row">
+            <span class="row-tier">$ 8만 달성</span>
+            <span class="row-earning">10만원 현금</span>
+            <span class="row-remaining"><span class="row-counter-value" data-target="8" data-current="10">10</span>명</span>
+          </div>
+
+          <!-- 10만 달성 -->
+          <div class="leaderboard-row">
+            <span class="row-tier">$ 10만 달성</span>
+            <span class="row-earning">아이패드 A16 실버</span>
+            <span class="row-remaining"><span class="row-counter-value" data-target="10" data-current="1">1</span>명</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submission Form -->
+    <div class="form-section">
+      <h2>
+        <span style="display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; background: #0082FF; border-radius: 50%; color: white; font-size: 32px; font-weight: bold;">✓</span>
+        송금 증명
+        <span style="width: 60px;"></span>
+      </h2>
+      <p>모인에 가입한 정보를 알려주시면 확인 후 보상을 드립니다</p>
+
+      <form id="submissionForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">
+              신청할 보상
+              <span class="required">*</span>
+            </label>
+            <div class="mbp-select mbp-select--medium mbp-select--solid mbp-select--width-filled" id="rewardField">
+              <div class="mbp-select__wrapper">
+                <select
+                  class="mbp-select__input"
+                  id="reward"
+                  name="reward"
+                  required
+                >
+                  <option value="">보상을 선택하세요</option>
+                  <option value="20000">$ 2만 달성 - 5,000원 쿠폰</option>
+                  <option value="40000">$ 4만 달성 - 3만원 현금</option>
+                  <option value="60000">$ 6만 달성 - 5만원 현금</option>
+                  <option value="80000">$ 8만 달성 - 10만원 현금</option>
+                  <option value="100000">$ 10만 달성 - 아이패드 A16 실버</option>
+                </select>
+              </div>
+              <div class="mbp-select__error-message" id="rewardError" style="display: none;"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
+              모인에 가입한 이메일
+              <span class="required">*</span>
+            </label>
+            <div class="form-helper-box">
+              마이페이지 → 내 정보 관리 > 회원정보 > 이메일
+            </div>
+            <div class="mbp-textfield mbp-textfield--medium mbp-textfield--solid mbp-textfield--width-filled" id="emailField">
+              <div class="mbp-textfield__wrapper">
+                <input
+                  type="email"
+                  class="mbp-textfield__input form-input"
+                  id="email"
+                  name="email"
+                  placeholder="example@moin.com"
+                  required
+                >
+                <div class="mbp-textfield__adornment" id="emailAdornment" style="display: none;">
+                  <span class="mbp-textfield__exclamation">!</span>
+                </div>
+              </div>
+              <div class="mbp-textfield__error-message" id="emailError" style="display: none;"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
+              이름
+              <span class="required">*</span>
+            </label>
+            <div class="mbp-textfield mbp-textfield--medium mbp-textfield--solid mbp-textfield--width-filled" id="nameField">
+              <div class="mbp-textfield__wrapper">
+                <input
+                  type="text"
+                  class="mbp-textfield__input form-input"
+                  id="name"
+                  name="name"
+                  placeholder="홍길동"
+                  required
+                >
+                <div class="mbp-textfield__adornment" id="nameAdornment" style="display: none;">
+                  <span class="mbp-textfield__exclamation">!</span>
+                </div>
+              </div>
+              <div class="mbp-textfield__error-message" id="nameError" style="display: none;"></div>
+            </div>
+          </div>
+
+          <!-- Privacy Consent Section -->
+          <div class="privacy-consent-section">
+            <div class="privacy-consent-item">
+              <input
+                type="checkbox"
+                id="privacyConsent"
+                class="privacy-consent-checkbox"
+                name="privacyConsent"
+                required
+              >
+              <div class="privacy-consent-text">
+                <label for="privacyConsent">[개인정보 수집 및 이용 동의]</label>
+                <div class="description">본 설문을 통해 수집한 모인 계정과 이름, 인증한 국내 개인 계좌는 리워드 제공을 위해서만 사용됩니다. 개인정보 수집 및 이용에 동의하시나요?</div>
+              </div>
+            </div>
+            <div class="privacy-consent-error" id="privacyError">동의가 필요합니다</div>
+          </div>
+
+        </div>
+
+        <div class="button-wrapper">
+          <button type="submit" class="submit-button" id="submitBtn">제출하기</button>
+        </div>
+
+        <div class="message" id="message"></div>
+      </form>
+    </div>
+
+    <!-- Notice Section -->
+    <div class="notice-section">
+      <h3>유의사항</h3>
+      <ul>
+        <li>모든 이벤트 시간은 한국시간(KST) 기준입니다.</li>
+        <li>본 이벤트는 2026.01.02부터 내부 종료 시까지 진행됩니다.</li>
+        <li>2026년 모든 송금 건을 오직 모인에서만 진행한 고객에 한하여 참여 가능합니다.</li>
+        <li>2026년 12월 31일 23:59(KST)까지 송금 신청 및 입금이 완료된 송금 건만 인정됩니다.</li>
+        <li>모든 리워드는 송금 완료 후 송금 증명(이메일 및 성함)을 제출한 순서에 따라 선착순으로 지급됩니다.</li>
+        <li>실시간 잔여 인원은 하단 버튼을 통해 연결되는 참여 현황 페이지에서 확인 가능하며, 마감 현황 또한 즉시 반영됩니다.</li>
+        <li>쿠폰 리워드는 선착순 내 송금 증명 제출 시 발급되며, 송금 증명 제출일 기준 익월 10일에 [쿠폰함]에서 확인하실 수 있습니다.</li>
+        <li>현금 리워드는 송금 증명을 제출한 날 기준 익월 10일, 모인에 등록된 본인 명의의 국내 계좌로 지급됩니다. 단, 지급일이 공휴일인 경우 이전 영업일에 지급됩니다.</li>
+        <li>아이패드 리워드는 선착순 조건 충족자 1인에게 제공되며, 당첨자에게 모인에 등록된 이메일과 전화번호로 별도 안내 드릴 예정입니다.</li>
+        <li>부적절한 방법으로 참여했다고 판단되는 경우에는 보상이 지급되지 않을 수 있습니다.</li>
+        <li>본 이벤트는 당사 사정에 따라 변경 또는 조기 종료될 수 있습니다.</li>
+        <li>본 이벤트 관련 자세한 내용은 growth@themoim.com으로 연락해 주시기 바랍니다.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // ===== Flutter Bridge Communication =====
+    class FlutterBridge {
+      static log(message) {
+        if (window.flutter) {
+          window.flutter.log(message);
+        } else {
+          console.log('[Flutter Bridge]', message);
+        }
+      }
+
+      static postMessage(type, data) {
+        if (window.flutter) {
+          window.flutter.postMessage(JSON.stringify({ type, data }));
+        } else {
+          console.log('[Flutter Bridge] Message:', { type, data });
+        }
+      }
+    }
+
+    // ===== MBP TextField Focus State Management & Validation =====
+    function initializeTextfields() {
+      const rewardInput = document.getElementById('reward');
+      const rewardField = document.getElementById('rewardField');
+      const rewardError = document.getElementById('rewardError');
+      const emailInput = document.getElementById('email');
+      const nameInput = document.getElementById('name');
+      const emailField = document.getElementById('emailField');
+      const nameField = document.getElementById('nameField');
+      const emailError = document.getElementById('emailError');
+      const nameError = document.getElementById('nameError');
+      const emailAdornment = document.getElementById('emailAdornment');
+      const nameAdornment = document.getElementById('nameAdornment');
+
+      // Email validation helper
+      function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+      }
+
+      // Show error for email
+      function showEmailError(message) {
+        emailField.classList.add('mbp-textfield--error');
+        emailError.textContent = message;
+        emailError.style.display = 'block';
+        emailAdornment.style.display = 'flex';
+      }
+
+      // Hide error for email
+      function hideEmailError() {
+        emailField.classList.remove('mbp-textfield--error');
+        emailError.style.display = 'none';
+        emailAdornment.style.display = 'none';
+      }
+
+      // Show error for name
+      function showNameError(message) {
+        nameField.classList.add('mbp-textfield--error');
+        nameError.textContent = message;
+        nameError.style.display = 'block';
+        nameAdornment.style.display = 'flex';
+      }
+
+      // Hide error for name
+      function hideNameError() {
+        nameField.classList.remove('mbp-textfield--error');
+        nameError.style.display = 'none';
+        nameAdornment.style.display = 'none';
+      }
+
+      // Email field events
+      emailInput.addEventListener('focus', () => {
+        emailField.classList.add('mbp-textfield--focus');
+      });
+
+      emailInput.addEventListener('blur', () => {
+        emailField.classList.remove('mbp-textfield--focus');
+
+        // Validate on blur
+        const value = emailInput.value.trim();
+        if (value === '') {
+          showEmailError('이메일을 입력해주세요');
+        } else if (!validateEmail(value)) {
+          showEmailError('올바른 이메일 형식이 아닙니다');
+        }
+      });
+
+      emailInput.addEventListener('input', () => {
+        // Clear error when user starts typing
+        if (emailInput.value.trim() !== '') {
+          hideEmailError();
+        }
+      });
+
+      // Name field events
+      nameInput.addEventListener('focus', () => {
+        nameField.classList.add('mbp-textfield--focus');
+      });
+
+      nameInput.addEventListener('blur', () => {
+        nameField.classList.remove('mbp-textfield--focus');
+
+        // Validate on blur
+        const value = nameInput.value.trim();
+        if (value === '') {
+          showNameError('이름을 입력해주세요');
+        }
+      });
+
+      nameInput.addEventListener('input', () => {
+        // Clear error when user starts typing
+        if (nameInput.value.trim() !== '') {
+          hideNameError();
+        }
+      });
+
+      // Show error for reward
+      function showRewardError(message) {
+        rewardField.classList.add('mbp-select--error');
+        rewardError.textContent = message;
+        rewardError.style.display = 'block';
+      }
+
+      // Hide error for reward
+      function hideRewardError() {
+        rewardField.classList.remove('mbp-select--error');
+        rewardError.style.display = 'none';
+      }
+
+      // Reward field events
+      rewardInput.addEventListener('focus', () => {
+        rewardField.classList.add('mbp-select--focus');
+      });
+
+      rewardInput.addEventListener('blur', () => {
+        rewardField.classList.remove('mbp-select--focus');
+
+        // Validate on blur
+        const value = rewardInput.value.trim();
+        if (value === '') {
+          showRewardError('보상을 선택해주세요');
+        }
+      });
+
+      rewardInput.addEventListener('change', () => {
+        // Clear error when user selects
+        if (rewardInput.value.trim() !== '') {
+          hideRewardError();
+        }
+      });
+
+      // Expose validation functions for form submission
+      window.validateRewardField = function() {
+        const value = rewardInput.value.trim();
+        if (value === '') {
+          showRewardError('보상을 선택해주세요');
+          return false;
+        }
+        hideRewardError();
+        return true;
+      };
+
+      window.validateEmailField = function() {
+        const value = emailInput.value.trim();
+        if (value === '') {
+          showEmailError('이메일을 입력해주세요');
+          return false;
+        } else if (!validateEmail(value)) {
+          showEmailError('올바른 이메일 형식이 아닙니다');
+          return false;
+        }
+        hideEmailError();
+        return true;
+      };
+
+      window.validateNameField = function() {
+        const value = nameInput.value.trim();
+        if (value === '') {
+          showNameError('이름을 입력해주세요');
+          return false;
+        }
+        hideNameError();
+        return true;
+      };
+
+      // Privacy consent validation
+      const privacyCheckbox = document.getElementById('privacyConsent');
+      const privacyError = document.getElementById('privacyError');
+
+      privacyCheckbox.addEventListener('change', () => {
+        if (privacyCheckbox.checked) {
+          privacyError.classList.remove('show');
+        }
+      });
+
+      window.validatePrivacyConsent = function() {
+        if (!privacyCheckbox.checked) {
+          privacyError.classList.add('show');
+          return false;
+        }
+        privacyError.classList.remove('show');
+        return true;
+      };
+    }
+
+    // ===== Counter Animation Logic =====
+    function initializeCounters() {
+      const counterElements = document.querySelectorAll('.counter-value');
+
+      counterElements.forEach(counter => {
+        const target = parseInt(counter.dataset.target);
+        const currentValue = parseInt(counter.dataset.current);
+
+        // 랜덤 감소 간격 설정 (3일 ~ 7일)
+        const updateIntervalDays = Math.floor(Math.random() * (7 - 3 + 1)) + 3;
+        const updateIntervalMs = updateIntervalDays * 24 * 60 * 60 * 1000;
+
+        setInterval(() => {
+          let currentCount = parseInt(counter.textContent);
+          const decrementValue = Math.random() > 0.5 ? 2 : 1;
+          let newCount = Math.max(0, currentCount - decrementValue);
+
+          counter.classList.add('updating');
+
+          setTimeout(() => {
+            counter.textContent = newCount;
+            counter.classList.remove('updating');
+          }, 250);
+        }, updateIntervalMs);
+      });
+    }
+
+    // ===== Form Submission with Enhanced Security =====
+    const form = document.getElementById('submissionForm');
+    const message = document.getElementById('message');
+    const submitBtn = document.getElementById('submitBtn');
+    let isSubmitting = false; // 중복 제출 방지
+
+    // 제출 상태 관리
+    const submissionState = {
+      lastSubmitTime: 0,
+      minIntervalMs: 60000, // 최소 60초 간격
+      successCount: 0
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // 중복 제출 방지 (버튼 중복 클릭)
+      if (isSubmitting) {
+        console.warn('⚠️ 제출이 진행 중입니다. 잠시만 기다려주세요.');
+        return;
+      }
+
+      // Rate limiting 클라이언트 검사
+      const now = Date.now();
+      if (now - submissionState.lastSubmitTime < submissionState.minIntervalMs) {
+        const remainingSeconds = Math.ceil((submissionState.minIntervalMs - (now - submissionState.lastSubmitTime)) / 1000);
+        showMessage(`너무 빠르게 제출했습니다. ${remainingSeconds}초 후 다시 시도해주세요.`, 'error');
+        return;
+      }
+
+      // Validate all fields
+      const isRewardValid = window.validateRewardField();
+      const isEmailValid = window.validateEmailField();
+      const isNameValid = window.validateNameField();
+      const isPrivacyValid = window.validatePrivacyConsent();
+
+      if (!isRewardValid || !isEmailValid || !isNameValid || !isPrivacyValid) {
+        return; // Stop submission if validation fails
+      }
+
+      const reward = document.getElementById('reward').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const name = document.getElementById('name').value.trim();
+
+      // 입력값 길이 검증 (프론트엔드)
+      if (email.length > 100) {
+        showMessage('이메일이 너무 깁니다.', 'error');
+        return;
+      }
+      if (name.length > 50) {
+        showMessage('이름이 너무 깁니다.', 'error');
+        return;
+      }
+
+      // XSS 방지: 위험한 문자 검사
+      const dangerousChars = ['<', '>', '"', "'", '{', '}', '`', 'javascript:'];
+      if (dangerousChars.some(char => name.toLowerCase().includes(char))) {
+        showMessage('입력에 허용되지 않는 문자가 포함되어 있습니다.', 'error');
+        return;
+      }
+
+      isSubmitting = true;
+      submitBtn.disabled = true;
+      submitBtn.textContent = '제출 중...';
+
+      try {
+        // Google Apps Script로 전송 (향상된 방식)
+        const googleAppsScriptUrl = 'https://script.google.com/macros/s/AKfycbypcOto_m40L3msSMWcFP6PDYV7mJTMtYAXuX8Y8jYlEbeAFJ51aC2NRrTXYHqw1b7Ffg/exec';
+
+        console.log('📤 전송 시도:', { email, name });
+
+        // Origin 정보 전송 (CORS 검증용)
+        const currentOrigin = window.location.origin;
+
+        // 숨겨진 form으로 제출 (CORS 문제 없음)
+        const hiddenForm = document.createElement('form');
+        hiddenForm.method = 'POST';
+        hiddenForm.action = googleAppsScriptUrl;
+        hiddenForm.target = 'gas-response';
+        hiddenForm.style.display = 'none';
+
+        // Origin 정보 추가
+        const originInput = document.createElement('input');
+        originInput.type = 'hidden';
+        originInput.name = 'origin';
+        originInput.value = currentOrigin;
+        hiddenForm.appendChild(originInput);
+
+        // Reward 추가
+        const rewardInput = document.createElement('input');
+        rewardInput.type = 'hidden';
+        rewardInput.name = 'reward';
+        rewardInput.value = reward;
+        hiddenForm.appendChild(rewardInput);
+
+        const emailInput = document.createElement('input');
+        emailInput.type = 'hidden';
+        emailInput.name = 'email';
+        emailInput.value = email;
+        hiddenForm.appendChild(emailInput);
+
+        const nameInput = document.createElement('input');
+        nameInput.type = 'hidden';
+        nameInput.name = 'name';
+        nameInput.value = name;
+        hiddenForm.appendChild(nameInput);
+
+        document.body.appendChild(hiddenForm);
+
+        // iframe 생성해서 응답 받기
+        const iframe = document.createElement('iframe');
+        iframe.name = 'gas-response';
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+
+        // 타임아웃 설정 (20초)
+        const submissionTimeout = setTimeout(() => {
+          console.warn('⚠️ 제출 타임아웃: 응답이 없습니다.');
+          showMessage('요청 시간이 초과했습니다. 잠시 후 다시 시도해주세요.', 'error');
+          cleanupSubmission();
+        }, 20000);
+
+        // 제출
+        console.log('📤 Form 제출 중...');
+        hiddenForm.submit();
+
+        // 작은 지연 후 완료 메시지 표시 (서버 처리 대기)
+        setTimeout(function() {
+          try {
+            clearTimeout(submissionTimeout);
+            console.log('✅ 제출 완료!');
+            showMessage('✅ 제출이 완료되었습니다!', 'success');
+            FlutterBridge.postMessage('submission_success', { email, name });
+            form.reset();
+            submissionState.successCount++;
+            submissionState.lastSubmitTime = Date.now();
+
+            // Google Sheet 확인 링크 제시
+            console.log('📊 Google Sheet에서 확인하세요: https://docs.google.com/spreadsheets/d/1c7pjecgIel9MAv2mf3hbyEJqzLwX_2nm3ZuHQ-P6XjQ/');
+          } catch (err) {
+            console.error('❌ 완료 처리 에러:', err);
+            showMessage('완료 처리 중 오류: ' + err.message, 'error');
+          }
+          cleanupSubmission();
+        }, 2000);
+
+      } catch (error) {
+        console.error('❌ 제출 처리 중 에러:', error);
+        showMessage('오류가 발생했습니다: ' + error.message, 'error');
+        cleanupSubmission();
+      }
+
+      function cleanupSubmission() {
+        isSubmitting = false;
+        submitBtn.disabled = false;
+        submitBtn.textContent = '제출하기';
+
+        const hiddenForm = document.querySelector('form[target="gas-response"]');
+        const iframe = document.querySelector('iframe[name="gas-response"]');
+
+        if (hiddenForm && hiddenForm.parentNode) {
+          document.body.removeChild(hiddenForm);
+        }
+        if (iframe && iframe.parentNode) {
+          document.body.removeChild(iframe);
+        }
+      }
+    });
+
+    function showMessage(text, type) {
+      message.textContent = text;
+      message.className = `message ${type}`;
+      message.style.display = 'block';
+
+      if (type === 'success') {
+        setTimeout(() => {
+          message.style.display = 'none';
+        }, 4000);
+      }
+    }
+
+    // 초기화
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeCounters();
+      initializeTextfields();
+      FlutterBridge.log('Promotion Leaderboard loaded');
+    });
+
+    // Flutter WebView 감지
+    window.addEventListener('flutter_webview_ready', () => {
+      FlutterBridge.log('Flutter WebView detected');
+    });
+  </script>
+</body>
+</html>
