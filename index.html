@@ -1954,10 +1954,11 @@
         let decrementConfig;
 
         if (target === 4) {
-          // 4만달성 (100명): 1분기(약 91일)에 100→87명 (13명 차감)
+          // 4만달성 (100명): 연중 23명 차감
+          // 1분기: 100→87명 (13명), 2분기: 87→76명 (7명), 3분기: 76→69명 (2명), 4분기: 69→64명 (1명)
           decrementConfig = {
-            totalDecrements: 13,
-            intervalMs: (91 * 24 * 60 * 60 * 1000) / 13, // 91일을 13번에 나눔
+            totalDecrements: 23,
+            intervalMs: (365 * 24 * 60 * 60 * 1000) / 23, // 365일을 23번에 나눔
             minDecrement: 1,
             maxDecrement: 1
           };
